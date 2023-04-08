@@ -13,7 +13,10 @@ namespace Entities.Concrete
         public int BrandId { get; set; }
         public string ModelName { get; set; }
         public decimal DailyPrice { get; set; }
+        public string ModelYear { get; set; }
+        public string Speed { get; set; }
         public string GearType { get; set; }
+        public bool   IsBabySeat { get; set; }
         public string FuelType { get; set; }
         public string Description { get; set; }
         public bool IsAirConditioner { get; set; }

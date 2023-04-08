@@ -53,6 +53,9 @@ namespace DataAccess.Concrete.EntityFramework
                        Description = mdl.Description,
                        IsAirConditioner = mdl.IsAirConditioner,
                        IsGps = mdl.IsGps,
+                       ModelYear = "Model-" + mdl.ModelYear,
+                       Speed = mdl.Speed,
+                       IsBabySeat = mdl.IsBabySeat,
                        ModelImageUrls = context.ModelImages.Where(x => x.ModelId == mdl.Id).ToList().Count > 0
                          ? context.ModelImages.Where(x => x.ModelId == mdl.Id).Select(x => x.ImageUrl).ToList()
                          : new List<string> { "/ModelImages/default.png" }

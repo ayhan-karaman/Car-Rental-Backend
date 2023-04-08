@@ -21,15 +21,16 @@ namespace DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(x => x.DailyPrice).HasColumnName("daily_price");
             builder.Property(x => x.ModelName).HasColumnName("model_name");
             builder.Property(x => x.Description).HasColumnName("description");
+            builder.Property(x => x.ModelYear).HasColumnName("model_year");
+            builder.Property(x => x.Speed).HasColumnName("speed");
+            builder.Property(x => x.IsBabySeat).HasColumnName("is_baby_seat").HasDefaultValue(true);
             builder.Property(x => x.IsAirConditioner).HasColumnName("is_air_conditioner").HasDefaultValue(true);
             builder.Property(x => x.IsGps).HasColumnName("is_gps").HasDefaultValue(true);
 
             builder.HasOne(x => x.Brand);
             builder.HasOne(x => x.Color);
 
-            builder.HasMany(x => x.ModelImages);
-
-            
+            builder.HasMany(x => x.ModelImages);           
         }
     }
 }
