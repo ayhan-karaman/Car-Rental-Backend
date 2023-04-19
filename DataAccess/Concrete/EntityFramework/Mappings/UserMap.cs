@@ -18,6 +18,7 @@ namespace DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(x => x.FirstName).HasColumnName("first_name");
             builder.Property(x => x.LastName).HasColumnName("last_name");
             builder.Property(x => x.Email).HasColumnName("email");
+            builder.Property(x => x.ImageUrl).HasColumnName("image_url");
             builder.Property(x => x.PasswordHash).HasColumnName("password_hash");
             builder.Property(x => x.PasswordSalt).HasColumnName("password_salt");
             builder.Property(x => x.Status).HasColumnName("status").HasDefaultValue(true);

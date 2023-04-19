@@ -6,11 +6,11 @@
     <hr>
      <p align="center"> Car Rental project with N-Layer Architecture.</p>
     <p align="center">
-       🔖 Frontend of <a href="https://github.com/ayhan-karaman/car-rental-client">Car Rental Client</a> with React. 
+       🔗 Frontend of <a href="https://github.com/ayhan-karaman/car-rental-client">Car Rental Client</a> with React. 
     </p>
 </header>
 
-<h1>🏗️  Build With</h1>
+<h1> 🏗️  Build With</h1>
 
 [![C#](https://img.shields.io/badge/Csharp-563D7C?style=for-the-badge&logo=Csharp&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet)
 [![.NET](https://img.shields.io/badge/ASP.NET-0090d6?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet)

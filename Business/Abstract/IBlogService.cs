@@ -15,5 +15,6 @@ namespace Business.Abstract
         IResult Update(Blog blog);
         IDataResult<List<Blog>> GetAll();
         IDataResult<List<UserForBlogDto>> GetUserForBlogDtos();
+        IDataResult<UserForBlogDto> GetByIdUserForBlogDtos(int id);
     }
 }

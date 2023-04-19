@@ -26,12 +26,21 @@ namespace WebApiUI.Controllers
              return result.Success ? Ok(result) : BadRequest(result);
         }
 
+        [HttpGet("get-by-id-blog")]
+        public IActionResult GetByIdBlog(int id)
+        {
+            var result = _blogService.GetByIdUserForBlogDtos(id);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
         [HttpPost("new-blog")]
         public IActionResult Add([FromForm] Blog blog, [FromForm] IFormFile file)
         {
             var result = _blogService.Add(blog, file);
             return result.Success ? Ok(result) : BadRequest(result); 
         }
+
+
     }
     
 }

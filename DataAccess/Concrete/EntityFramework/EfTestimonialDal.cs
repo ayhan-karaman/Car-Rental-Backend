@@ -25,6 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                                {
                                     Id = tst.Id,
                                     Client = $"{us.FirstName} {us.LastName}",
+                                    ClientImage = String.IsNullOrEmpty(us.ImageUrl) ? "/UserImages/avatar.png" : us.ImageUrl,
                                     Comment = tst.Comment,
                                     Status = tst.Status
                                };

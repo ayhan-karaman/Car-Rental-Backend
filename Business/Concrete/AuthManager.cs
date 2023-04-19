@@ -37,6 +37,13 @@ namespace Business.Concrete
              if(!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
                 return new ErrorDataResult<User>("Lütfen bilgileriniz kontrol ediniz!");
              
+            // var userDetailDto = _userService.GetByEmailUserDetailDto(userToCheck.Data.Email);
+            // var accessToken = CreateAccessToken(userToCheck.Data);
+            // var tokenForDetail = new TokenForUserDetail{
+            //     UserDetailDto = userDetailDto.Data,
+            //     AccessToken = accessToken.Data
+            // };
+
              return new SuccessDataResult<User>(userToCheck.Data, "Giriş yapıldı.");
         }
 

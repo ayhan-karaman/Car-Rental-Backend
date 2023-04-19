@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.DataAccess.EntityFramework;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
+using Entities.Dtos;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -21,6 +23,22 @@ namespace DataAccess.Concrete.EntityFramework
                              select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
                 return result.ToList();
             }
+        }
+
+        public UserDetailDto GetUserDetailDto(Expression<Func<UserDetailDto, bool>> filter)
+        {
+             using (var context = new CarRentalDbContext())
+             {
+                var result = from user in context.Users
+                             select new UserDetailDto{
+                                FirstName = user.FirstName,
+                                LastName = user.LastName,
+                                Email = user.Email,
+                                UserName = user.UserName,
+                                ImageUrl = user.ImageUrl
+                             };
+                 return result.Where(filter).FirstOrDefault(); 
+             }
         }
     }
 }
