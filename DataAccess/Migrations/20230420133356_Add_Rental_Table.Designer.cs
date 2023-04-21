@@ -3,6 +3,7 @@ using System;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    partial class CarRentalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230420133356_Add_Rental_Table")]
+    partial class Add_Rental_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,7 +135,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 4, 21, 18, 15, 23, 236, DateTimeKind.Utc).AddTicks(360))
+                        .HasDefaultValue(new DateTime(2023, 4, 20, 13, 33, 56, 295, DateTimeKind.Utc).AddTicks(540))
                         .HasColumnName("date");
 
                     b.Property<string>("Description")
@@ -361,10 +363,6 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("return_date");
-
-                    b.Property<int>("TotalRentDay")
-                        .HasColumnType("integer")
-                        .HasColumnName("total_rent_day");
 
                     b.HasKey("Id");
 
