@@ -14,11 +14,9 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         private readonly IRentalDal _rentalDal;
-        private readonly IModelService _modelService;
-        public RentalManager(IRentalDal rentalDal, IModelService modelService)
+        public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
-            _modelService = modelService;
         }
 
         public IResult Add(Rental rental)
@@ -27,7 +25,6 @@ namespace Business.Concrete
             if (rules != null)
                     return rules;
             
-            rental.TotalRentDay = DateDifference(rental.RentStartDate, rental.RentEndDate);
             _rentalDal.Add(rental);
             return new SuccessResult();
         }

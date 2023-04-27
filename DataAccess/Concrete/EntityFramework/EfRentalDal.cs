@@ -37,7 +37,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  RentEndDate = rental.RentEndDate,
                                  ReturnDate = rental.ReturnDate,
                                  TotalRentDay =rental.TotalRentDay,
-                                 CustomerId = customer.Id
+                                 CustomerId = customer.Id,
+                                 ImageUrl = !String.IsNullOrEmpty(context.ModelImages.FirstOrDefault(x => x.ModelId == model.Id).ImageUrl) ? 
+                                 context.ModelImages.FirstOrDefault(x => x.ModelId == model.Id).ImageUrl : "/ModelImages/default.png"
                              };
 
                    

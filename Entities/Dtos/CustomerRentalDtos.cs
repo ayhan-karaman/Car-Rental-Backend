@@ -13,6 +13,7 @@ namespace Entities.Dtos
         public string ModelName { get; set; }
         public decimal DailyPrice { get; set; }
         public decimal TotalPrice { get; set; }
+        public string? ImageUrl { get; set; }
         public int TotalRentDay { get; set; }
         public DateTime RentStartDate { get; set; }
         public DateTime RentEndDate { get; set; }

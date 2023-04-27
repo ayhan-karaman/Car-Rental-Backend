@@ -31,6 +31,7 @@ namespace DataAccess.Concrete.EntityFramework
              {
                 var result = from user in context.Users
                              select new UserDetailDto{
+                                UserId = user.Id,
                                 FirstName = user.FirstName,
                                 LastName = user.LastName,
                                 Email = user.Email,
