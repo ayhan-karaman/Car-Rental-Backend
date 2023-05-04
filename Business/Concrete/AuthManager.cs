@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.ValidationAspects;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
@@ -29,24 +31,21 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken, "Token oluşturuldu.");
         }
 
+        [ValidationAspect(typeof(LoginValidator))]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByEmailOrUserName(userForLoginDto.EmailOrUserName);
             if(!userToCheck.Success)
                 return new ErrorDataResult<User>(userToCheck.Message);
              if(!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
-                return new ErrorDataResult<User>("Lütfen bilgileriniz kontrol ediniz!");
-             
-            // var userDetailDto = _userService.GetByEmailUserDetailDto(userToCheck.Data.Email);
-            // var accessToken = CreateAccessToken(userToCheck.Data);
-            // var tokenForDetail = new TokenForUserDetail{
-            //     UserDetailDto = userDetailDto.Data,
-            //     AccessToken = accessToken.Data
-            // };
+                return new ErrorDataResult<User>("Lütfen bilgilerinizi kontrol ediniz!");
+
 
              return new SuccessDataResult<User>(userToCheck.Data, "Giriş yapıldı.");
         }
 
+
+        [ValidationAspect(typeof(RegisterValidator))]
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;

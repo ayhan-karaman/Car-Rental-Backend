@@ -63,7 +63,7 @@ namespace Business.Concrete
         {
             var user = _userDal.Get(x => x.Email == value || x.UserName == value);
             return user != null ? new SuccessDataResult<User>(user) 
-            : new ErrorDataResult<User>("Kullanıcıc bulunamadı");
+            : new ErrorDataResult<User>("Kullanıcı bulunamadı");
         }
 
         public IDataResult<User> GetById(int id)
@@ -94,7 +94,7 @@ namespace Business.Concrete
 
 
             return user != null ? new SuccessDataResult<UserDetailDto>(user) 
-            : new ErrorDataResult<UserDetailDto>("Kullanıcıc bulunamadı");
+            : new ErrorDataResult<UserDetailDto>("Kullanıcı bulunamadı");
         }
 
         public IResult Update(User user)

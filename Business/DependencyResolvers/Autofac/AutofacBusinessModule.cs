@@ -53,6 +53,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<RentalManager>().As<IRentalService>().SingleInstance();
             builder.RegisterType<EfRentalDal>().As<IRentalDal>().SingleInstance();
+
+            builder.RegisterType<CreditCardManager>().As<ICreditCardService>().SingleInstance();
+            builder.RegisterType<EfCreditCardDal>().As<ICreditCardDal>().SingleInstance();
             
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

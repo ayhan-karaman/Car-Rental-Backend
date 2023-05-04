@@ -3,6 +3,7 @@ using System;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    partial class CarRentalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230429111328_Add_CreditCard_Table")]
+    partial class Add_CreditCard_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,7 +135,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 4, 29, 12, 44, 54, 968, DateTimeKind.Utc).AddTicks(8690))
+                        .HasDefaultValue(new DateTime(2023, 4, 29, 11, 13, 28, 512, DateTimeKind.Utc).AddTicks(5270))
                         .HasColumnName("date");
 
                     b.Property<string>("Description")
@@ -214,11 +216,6 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CardHolderName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("card_holder_name");
-
                     b.Property<string>("CardNumber")
                         .IsRequired()
                         .HasColumnType("text")
@@ -227,7 +224,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 4, 29, 12, 44, 54, 969, DateTimeKind.Utc).AddTicks(5320))
+                        .HasDefaultValue(new DateTime(2023, 4, 29, 11, 13, 28, 513, DateTimeKind.Utc).AddTicks(1240))
                         .HasColumnName("created_date");
 
                     b.Property<int>("CustomerId")

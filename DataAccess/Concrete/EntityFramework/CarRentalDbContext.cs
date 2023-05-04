@@ -23,6 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<CreditCard> CreditCards { get; set; }
 
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,6 +47,7 @@ namespace DataAccess.Concrete.EntityFramework
             new BlogMap().Configure(modelBuilder.Entity<Blog>());
             new TestimonialMap().Configure(modelBuilder.Entity<Testimonial>());
             new RentalMap().Configure(modelBuilder.Entity<Rental>());
+            new CreditCardMap().Configure(modelBuilder.Entity<CreditCard>());
             base.OnModelCreating(modelBuilder);
         }
     }

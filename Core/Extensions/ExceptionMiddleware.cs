@@ -40,7 +40,7 @@ namespace Core.Extensions
 
             if(e.GetType() == typeof(ValidationException))
             {
-                  message = e.Message;
+                  message = "Doğrulama Hatası";
                   errors = ((ValidationException) e).Errors;
                   httpContext.Response.StatusCode = 400;
 
