@@ -33,6 +33,27 @@ namespace WebApiUI.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
+        [HttpGet("get-by-brand-and-color-name-colors")]
+        public IActionResult GetByBrandNameAndColorNameModels(string brandName, string colorName)
+        {
+            var result = _modelService.GetBrandNameAndColorNameModels(brandName, colorName);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("get-by-brand-name")]
+        public IActionResult GetByBrandNameNameModels(string brandName)
+        {
+            var result = _modelService.GetBrandNameModels(brandName);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("get-by-color-name")]
+        public IActionResult GetByColorNameNameModels(string colorName)
+        {
+            var result = _modelService.GetColorNameModels(colorName);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
         [HttpPost("new-model")]
         public IActionResult Add(Model model)
         {
